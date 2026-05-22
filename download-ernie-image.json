@@ -1,0 +1,25 @@
+{
+  "run": [
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/main/split_files/vae/flux2-vae.safetensors?download=true",
+        "dir": "app/models/vae"
+      }
+    },
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ministral-3-3b.safetensors?download=true",
+        "dir": "app/models/text_encoder"
+      }
+    },
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/diffusion_models/ernie-image.safetensors?download=true",
+        "dir": "app/models/Stable-diffusion"
+      }
+    }
+  ]
+}

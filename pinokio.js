@@ -11,11 +11,15 @@ module.exports = {
       "download-wan2_1-t2v-1_3B.json",
       "download-wan2_2-t2v-14B.json",
       "download-wan2_2-i2v-14B.json",
+      "download-anima.json",
+      "download-ernie-image.json",
+      "download-ernie-image-turbo.json",
       "download-z-image-turbo.json",
       "download-neta-lumina.json",
       "download-netayume-lumina.json",
       "download-qwen-image.json",
       "download-qwen-image-edit.json",
+      "download-flux2-klein-4b.json",
       "download-flux1-dev-nf4-v2.json",
       "download-flux1-schnell-nf4.json",
       "download-flux1-dev-fp8.json",
@@ -38,6 +42,7 @@ module.exports = {
       install: info.running("install.js"),
       start: info.running("start.js"),
       update: info.running("update.js"),
+      reset_ui: info.running("reset_ui.js"),
       reset: info.running("reset.js"),
     }
     if (running.install) {
@@ -83,6 +88,13 @@ module.exports = {
           text: "Updating",
           href: "update.js",
         }]
+      } else if (running.reset_ui) {
+        return [{
+          default: true,
+          icon: 'fa-solid fa-terminal',
+          text: "Resetting UI",
+          href: "reset_ui.js",
+        }]
       } else if (running.reset) {
         return [{
           default: true,
@@ -103,11 +115,15 @@ module.exports = {
             { text: "Wan2.1-1.3B Text2Vid", icon: "fa-solid fa-download", href: "download-wan2_1-t2v-1_3B.json", mode: "refresh" },
             { text: "Wan2.2-14B Text2Vid", icon: "fa-solid fa-download", href: "download-wan2_2-t2v-14B.json", mode: "refresh" },
             { text: "Wan2.2-14B Img2Vid", icon: "fa-solid fa-download", href: "download-wan2_2-i2v-14B.json", mode: "refresh" },
+            { text: "Anima", icon: "fa-solid fa-download", href: "download-anima.json", mode: "refresh" },
+            { text: "Ernie Image", icon: "fa-solid fa-download", href: "download-ernie-image.json", mode: "refresh" },
+            { text: "Ernie Image Turbo", icon: "fa-solid fa-download", href: "download-ernie-image-turbo.json", mode: "refresh" },
             { text: "Z-Image Turbo", icon: "fa-solid fa-download", href: "download-z-image-turbo.json", mode: "refresh" },
             { text: "Lumina v1.0", icon: "fa-solid fa-download", href: "download-neta-lumina.json", mode: "refresh" },
             { text: "Lumina v2.0", icon: "fa-solid fa-download", href: "download-netayume-lumina.json", mode: "refresh" },
             { text: "Qwen Image", icon: "fa-solid fa-download", href: "download-qwen-image.json", mode: "refresh" },
             { text: "Qwen Image Edit", icon: "fa-solid fa-download", href: "download-qwen-image-edit.json", mode: "refresh" },
+            { text: "FLUX2 Klein 4B", icon: "fa-solid fa-download", href: "download-flux2-klein-4b.json", mode: "refresh" },
             { text: "FLUX1-Dev-fp8", icon: "fa-solid fa-download", href: "download-flux1-dev-fp8.json", mode: "refresh" },
             { text: "FLUX1-Dev-nf4-v2", icon: "fa-solid fa-download", href: "download-flux1-dev-nf4-v2.json", mode: "refresh" },
             { text: "FLUX1-Schnell-nf4", icon: "fa-solid fa-download", href: "download-flux1-schnell-nf4.json", mode: "refresh" },
@@ -126,6 +142,11 @@ module.exports = {
           icon: "fa-solid fa-plug",
           text: "Install",
           href: "install.js",
+        }, {
+          icon: "fa-regular fa-circle-xmark",
+          text: "Reset UI",
+          href: "reset_ui.js",
+          confirm: "This will reset your UI Settings.\nYou only have to do it once to update to the new version.\nYou will find your old settings in ./app/config_old.json and ./app/ui-config_old.json.\nAre you sure you wish to reset the UI?"
         }, {
           icon: "fa-regular fa-circle-xmark",
           text: "Reset",

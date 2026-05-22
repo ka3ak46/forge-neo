@@ -1,0 +1,25 @@
+{
+  "run": [
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors?download=true",
+        "dir": "app/models/vae"
+      }
+    },
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/text_encoders/qwen_3_06b_base.safetensors?download=true",
+        "dir": "app/models/text_encoder"
+      }
+    },
+    {
+      "method": "fs.download",
+      "params": {
+        "uri": "https://huggingface.co/circlestone-labs/Anima/resolve/main/split_files/diffusion_models/anima-base-v1.0.safetensors?download=true",
+        "dir": "app/models/Stable-diffusion"
+      }
+    }
+  ]
+}
